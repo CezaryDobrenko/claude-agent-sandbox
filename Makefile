@@ -23,7 +23,7 @@ start:
 
 	docker run -d --rm \
 		--env-file .env \
-		-p 8001:8000 \
+		-p $(port):8000 \
 		--name "$(container)" \
 		--mount type=bind,src="./context",dst=/workspace/project \
 		"${image}"
