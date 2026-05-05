@@ -25,8 +25,14 @@ start:
 		--env-file .env \
 		-p $(port):8000 \
 		--name "$(container)" \
-		--mount type=bind,src="./context",dst=/workspace/project \
 		"${image}"
+	docker exec --user root "$(container)" bash -lc ' \
+		rm -rf /workspace/project; \
+		mkdir -p /workspace/project; \
+		cp -a /app/context/. /workspace/project/; \
+		chown -R agent:agent /workspace/project; \
+		chmod -R u+rwX /workspace/project \
+	'
 
 stop:
 	@if [ -z "$(container)" ]; then \

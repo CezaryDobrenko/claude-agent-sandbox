@@ -1,4 +1,3 @@
-
 # ⚠️ Project Context Folder
 
 Paste your project code in this folder.
@@ -13,6 +12,8 @@ Do **not** place any of the following in this folder:
 
 ## Security note
 
-This folder will be mounted into the agent workspace.
+This folder will be copied into the agent workspace.
 
-Anything placed here can be read and modified by the agent.
+Anything placed here can be read by the agent.
+
+To update context rebuid image.
